@@ -1,0 +1,5 @@
+1.W pliku .env musisz wpisać swój DB_HOST i DB_PORT
+2.Stworzyć Baze danych o nazwie - logowanie 
+3.W terminalu wpisać php artisan migrate
+4.Znowu w terminalu wpisać php artisan serve
+5.Wejść w pokazany URL

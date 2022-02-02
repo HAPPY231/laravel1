@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTable extends Migration
+class TableRanking extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('slug');
-            $table->text('content');
-            $table->timestamps();
+        Schema::create('ranking', function (Blueprint $table) {
+            $table->bigIncrements('id')->nullable();
+            $table->string('Name',30);
+            $table->smallInteger('points');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table');
+        //
     }
 }

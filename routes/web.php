@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\KontoController;
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\RankingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +18,16 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get('/', [PagesController::class,'index']);
+Route::get('/', function () {
+    return view('home');
+});
 
-Route::get('pages', [PagesController::class,'index']);
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
 
-Route::get('pages/{slug}', [PagesController::class,'show']);
+Auth::routes();
 
-Route::get('create', [PagesController::class,'create']);
-
-Route::post('create', [PagesController::class,'store']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
+Route::get('/user', [KontoController::class, 'konto'])->middleware('auth');
+Route::get('/ranking/pytania', [QuestionsController::class, 'questions'])->middleware('auth');
+Route::get('/ranking', [RankingController::class, 'ranking'])->middleware('auth');
