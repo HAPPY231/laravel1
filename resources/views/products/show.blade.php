@@ -8,6 +8,12 @@
                 <div class="card-header">Podgląd produktu</div>
 
                 <div class="card-body">
+                        <div class="row mb-3 justify-content-center" >
+                            <div class="col-md-6" style="width: 240px; height: 240px;" >
+                                <img class="w-100 h-100" src="{{ asset('storage/'.$product->image_path) }}" alt="Zdjęcie produktu">
+                            </div>
+                        </div>
+
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
 

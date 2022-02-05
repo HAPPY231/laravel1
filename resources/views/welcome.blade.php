@@ -36,19 +36,19 @@
                     <div class="row">
                         @foreach($products as $product)
                         <div class="col-6 col-md-6 col-lg-4 mb-3">
-                            <div class="card h-100 border-0">
-                                <div class="card-img-top">
+                            <div class="card border-0" >
+                                <div class="card-img-top mx-auto" style="width: 240px; height: 240px;">
                                     @if(!is_null($product->image_path))
-                                        <img src="{{asset('storage/'.$product->image_path)}}" class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
+                                        <img class="w-100 h-100" src="{{asset('storage/'.$product->image_path)}}" class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
                                     @else
                                         <img src="https://via.placeholder.com/240x240/5fa9f8/efefef" class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
                                     @endif
                                 </div>
                                 <div class="card-body text-center">
                                     <h4 class="card-title">
-                                       <!-- <a href="product.html" class=" font-weight-bold text-dark text-uppercase small">
-
-                                        </a> --> {{$product->name}}
+                                       <a href="/products/{{$product->id}}" class="font-weight-bold text-dark text-uppercase text-decoration-none small">
+                                           {{$product->name}}
+                                        </a>
                                     </h4>
                                     <h5 class="card-price small">
                                         <i>PLN {{$product->price}}</i>
