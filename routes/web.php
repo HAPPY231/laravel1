@@ -7,6 +7,7 @@ use App\Http\Controllers\KontoController;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,11 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/quiz', function () {
     return view('home');
 });
 
+Route::get('/', [WelcomeController::class, 'index']);
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('auth');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('auth');

@@ -31,7 +31,7 @@
 
 
 
-        <a href="/">Spróbuj jeszcze raz</a>
+        <a href="/quiz">Spróbuj jeszcze raz</a>
         </div>
     </div>
 @endsection
