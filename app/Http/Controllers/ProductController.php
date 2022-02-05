@@ -50,7 +50,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param Product  $product
      * @return View
      */
     public function show(Product $product):View
