@@ -5,14 +5,17 @@ return [
       'save'=>'Zapisz'
     ],
     'product'=>[
-            'edit_title'=>'Edycja produktu :name',
+            'add'=>'Dodawanie produktu',
+            'edit'=>'Edycja produktu :name',
+            'show'=>'Podgląd produktu :name',
             'add_form'=>[
-                'title' => 'Dodawanie produktu',
                 'name'=>'Nazwa',
                 'description'=>'Opis',
                 'amount'=>'Ilość',
                 'price'=>'Cena',
+                'category'=>'Kategoria',
                 'graphics'=>'Grafika',
+                'actions'=>'Akcje',
             ],
 
     ],

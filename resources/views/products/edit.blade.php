@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{  __('logowanie.product.edit_title', ['name'=>$product->name]) }}</div>
+                <div class="card-header">{{  __('logowanie.product.edit', ['name'=>$product->name]) }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{  __('logowanie.product.add_form.name')}}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" maxlength="500" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $product->name }}" required autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end">{{  __('logowanie.product.add_form.description')}}</label>
 
                             <div class="col-md-6">
                                 <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description" required autofocus>{{$product->description}}</textarea>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="amount" class="col-md-4 col-form-label text-md-end">Ilość</label>
+                            <label for="amount" class="col-md-4 col-form-label text-md-end">{{  __('logowanie.product.add_form.amount')}}</label>
 
                             <div class="col-md-6">
                                 <input id="amount" type="number" min="0" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ $product->amount }}" required autocomplete="amount" autofocus>
@@ -54,13 +54,32 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="price" class="col-md-4 col-form-label text-md-end">Cena</label>
+                            <label for="price" class="col-md-4 col-form-label text-md-end">{{  __('logowanie.product.add_form.price')}}</label>
 
                             <div class="col-md-6">
                                 <input id="price" type="number" step="0.01" min="0" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $product->price }}" required autocomplete="price">
 
                                 @error('price')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('logowanie.product.add_form.category')}}</label>
+
+                            <div class="col-md-6">
+                                <select id="category_id" class="form-control @error('price') is-invalid @enderror" name="category_id">
+                                    <option value="">Brak</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{   $category->id   }}" @if($product->isSelectedCategory($category->id))selected @endif>{{  $category->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('category_id')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror

@@ -19,11 +19,12 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nazwa</th>
-                <th scope="col">Opis</th>
-                <th scope="col">Ilość</th>
-                <th scope="col">Cena</th>
-                <th scope="col">Akcje</th>
+                <th scope="col">{{  __('logowanie.product.add_form.name')}}</th>
+                <th scope="col">{{  __('logowanie.product.add_form.description')}}</th>
+                <th scope="col">{{  __('logowanie.product.add_form.amount')}}</th>
+                <th scope="col">{{  __('logowanie.product.add_form.price')}}</th>
+                <th scope="col">{{  __('logowanie.product.add_form.category')}}</th>
+                <th scope="col">{{  __('logowanie.product.add_form.actions')}}</th>
               </tr>
             </thead>
             <tbody>
@@ -34,6 +35,7 @@
                 <td>{{ $product->description }}</td>
                 <td>{{ $product->amount }}</td>
                 <td>{{ $product->price }}</td>
+                <td>@if($product->hasCategory()){{ $product->category->name}}@endif</td>
                 <td>
                     <a href="{{ route('products.show', $product->id) }}">
                         <button class="btn btn-primary btn-sm">P</button>
